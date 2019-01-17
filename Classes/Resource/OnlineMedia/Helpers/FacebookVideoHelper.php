@@ -17,7 +17,6 @@ use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Folder;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\AbstractOEmbedHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * Class FacebookVideoHelper
@@ -59,8 +58,6 @@ class FacebookVideoHelper extends AbstractOEmbedHelper
         // no existing file create new
         if ($file === null) {
             $oEmbed = $this->getOEmbedData($mediaId);
-            DebuggerUtility::var_dump($oEmbed, '$oEmbed');
-
             if (!empty($oEmbed) && isset($oEmbed['name'])) {
                 $fileName = $oEmbed['name'] . '.' . $fileExtension;
             } else {
