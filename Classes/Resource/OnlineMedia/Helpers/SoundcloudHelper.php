@@ -1,5 +1,6 @@
 <?php
 namespace SvenJuergens\Onlinemediahandler\Resource\OnlineMedia\Helpers;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -12,12 +13,13 @@ namespace SvenJuergens\Onlinemediahandler\Resource\OnlineMedia\Helpers;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\AbstractOEmbedHelper;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Folder;
+use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\AbstractOEmbedHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class SoundcloudHelper extends AbstractOEmbedHelper {
+class SoundcloudHelper extends AbstractOEmbedHelper
+{
     /**
      * @param string $url
      * @param \TYPO3\CMS\Core\Resource\Folder $targetFolder
@@ -30,7 +32,7 @@ class SoundcloudHelper extends AbstractOEmbedHelper {
         // see "Share" Button on soundcloud.com
         //https://soundcloud.com/migosatl/bad-and-boujee-feat-lil-uzi-vert-prod-by-metro-boomin
         $data = parse_url($url);
-        if($data['host'] === 'soundcloud.com'){
+        if ($data['host'] === 'soundcloud.com') {
             $soundPath = '/' . trim($data['path'], '/') . '/';
         }
 
@@ -123,6 +125,6 @@ class SoundcloudHelper extends AbstractOEmbedHelper {
     public function getOEmbedUrl($mediaId, $format = 'json')
     {
         $soundURl = 'https://soundcloud.com' . $mediaId;
-        return 'https://soundcloud.com/oembed?url=' . urlencode($soundURl) . '&format=json' ;
+        return 'https://soundcloud.com/oembed?url=' . urlencode($soundURl) . '&format=json';
     }
 }

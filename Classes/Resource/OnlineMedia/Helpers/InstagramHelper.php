@@ -1,5 +1,6 @@
 <?php
 namespace SvenJuergens\Onlinemediahandler\Resource\OnlineMedia\Helpers;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -12,13 +13,13 @@ namespace SvenJuergens\Onlinemediahandler\Resource\OnlineMedia\Helpers;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\AbstractOEmbedHelper;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Folder;
+use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\AbstractOEmbedHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-class InstagramHelper extends AbstractOEmbedHelper {
+class InstagramHelper extends AbstractOEmbedHelper
+{
 
     /**
      * @var null $oEmbedData
@@ -93,7 +94,7 @@ class InstagramHelper extends AbstractOEmbedHelper {
     public function getPublicUrl(File $file, $relativeToCurrentScript = false)
     {
         $mediaId = $this->getOnlineMediaId($file);
-        return 'https://www.instagram.com/p/'. $mediaId  . '/';
+        return 'https://www.instagram.com/p/' . $mediaId . '/';
     }
     /**
      * @param File $file

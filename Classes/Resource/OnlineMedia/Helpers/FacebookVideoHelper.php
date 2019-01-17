@@ -1,5 +1,6 @@
 <?php
 namespace SvenJuergens\Onlinemediahandler\Resource\OnlineMedia\Helpers;
+
 /**
  * This file is part of the TYPO3 CMS project.
  *
@@ -12,9 +13,9 @@ namespace SvenJuergens\Onlinemediahandler\Resource\OnlineMedia\Helpers;
  *
  * The TYPO3 project - inspiring people to share!
  */
-use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\AbstractOEmbedHelper;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Folder;
+use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\AbstractOEmbedHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -23,7 +24,8 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  *
  * @author Thomas Löffler <loeffler@spooner-web.de>
  */
-class FacebookVideoHelper extends AbstractOEmbedHelper {
+class FacebookVideoHelper extends AbstractOEmbedHelper
+{
     /**
      * @param string $url
      * @param \TYPO3\CMS\Core\Resource\Folder $targetFolder
@@ -57,7 +59,7 @@ class FacebookVideoHelper extends AbstractOEmbedHelper {
         // no existing file create new
         if ($file === null) {
             $oEmbed = $this->getOEmbedData($mediaId);
-            DebuggerUtility::var_dump($oEmbed,'$oEmbed');
+            DebuggerUtility::var_dump($oEmbed, '$oEmbed');
 
             if (!empty($oEmbed) && isset($oEmbed['name'])) {
                 $fileName = $oEmbed['name'] . '.' . $fileExtension;

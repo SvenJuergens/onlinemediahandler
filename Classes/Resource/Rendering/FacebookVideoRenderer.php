@@ -13,25 +13,26 @@ namespace SvenJuergens\Onlinemediahandler\Resource\Rendering;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use TYPO3\CMS\Core\Resource\File;
-use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\FileInterface;
-use TYPO3\CMS\Core\Resource\Rendering\FileRendererInterface;
+use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
+use TYPO3\CMS\Core\Resource\Rendering\FileRendererInterface;
+
 /**
  * Class FacebookVideoRenderer
  *
  * @author Thomas Löffler <loeffler@spooner-web.de>
  */
-class FacebookVideoRenderer implements FileRendererInterface {
+class FacebookVideoRenderer implements FileRendererInterface
+{
     /**
      * @var OnlineMediaHelperInterface
      */
     protected $onlineMediaHelper;
     /**
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {
@@ -39,7 +40,7 @@ class FacebookVideoRenderer implements FileRendererInterface {
     }
     /**
      * @param FileInterface $file
-     * @return boolean
+     * @return bool
      */
     public function canRender(FileInterface $file)
     {
@@ -84,8 +85,8 @@ class FacebookVideoRenderer implements FileRendererInterface {
 
         $videoId = $this->getOnlineMediaHelper($file)->getOnlineMediaId($orgFile);
         $src =
-            'https://www.facebook.com/v2.5/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fvideo.php%3Fv%3D'.
+            'https://www.facebook.com/v2.5/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fvideo.php%3Fv%3D' .
             $videoId;
-        return sprintf('<iframe src="%s"></iframe>',$src);
+        return sprintf('<iframe src="%s"></iframe>', $src);
     }
 }

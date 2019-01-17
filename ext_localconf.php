@@ -31,5 +31,4 @@ foreach ($onlineMediaHandler as $identifier => $requirements) {
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'][$identifier] =
         $requirements['mimeType'];
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext'] .= ',' . $identifier;
-
 }

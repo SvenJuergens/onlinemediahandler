@@ -13,24 +13,22 @@ namespace SvenJuergens\Onlinemediahandler\Resource\Rendering;
  *
  * The TYPO3 project - inspiring people to share!
  */
-
 use TYPO3\CMS\Core\Resource\File;
-use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\FileInterface;
-use TYPO3\CMS\Core\Resource\Rendering\FileRendererInterface;
+use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
+use TYPO3\CMS\Core\Resource\Rendering\FileRendererInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-
-class TwitterTweetRenderer implements FileRendererInterface {
+class TwitterTweetRenderer implements FileRendererInterface
+{
     /**
      * @var OnlineMediaHelperInterface
      */
     protected $onlineMediaHelper;
     /**
-     * @return integer
+     * @return int
      */
     public function getPriority()
     {
@@ -38,7 +36,7 @@ class TwitterTweetRenderer implements FileRendererInterface {
     }
     /**
      * @param FileInterface $file
-     * @return boolean
+     * @return bool
      */
     public function canRender(FileInterface $file)
     {
