@@ -59,7 +59,7 @@ class FacebookVideoHelper extends AbstractOEmbedHelper
         if ($file === null) {
             $oEmbed = $this->getOEmbedData($mediaId);
             if (!empty($oEmbed) && isset($oEmbed['name'])) {
-                $fileName = $oEmbed['name'] . '.' . $fileExtension;
+                $fileName = substr($oEmbed['name'], 0, 50) . '.' . $fileExtension;
             } else {
                 $fileName = $mediaId . '.' . $fileExtension;
             }

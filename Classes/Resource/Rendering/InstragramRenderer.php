@@ -91,7 +91,7 @@ class InstragramRenderer implements FileRendererInterface
     public function getOEmbedData($mediaId)
     {
         $oEmbed = GeneralUtility::getUrl(
-            'https://api.instagram.com/oembed/?url=http://www.instagram.com/p/' . $mediaId
+            'https://api.instagram.com/oembed/?url=https://www.instagram.com/p/' . $mediaId
         );
         if ($oEmbed) {
             $oEmbed = json_decode($oEmbed, true);

@@ -34,7 +34,7 @@ class InstagramHelper extends AbstractOEmbedHelper
     public function transformUrlToFile($url, Folder $targetFolder)
     {
         $imageId = null;
-        if (preg_match('/instagram\.com\/p\/*([a-zA-Z0-9]+)/i', $url, $matches)) {
+        if (preg_match('/instagram\.com\/p\/*([\w]+)/i', $url, $matches)) {
             $imageId = $matches[1];
         }
         if (empty($imageId)) {
@@ -57,7 +57,7 @@ class InstagramHelper extends AbstractOEmbedHelper
         if ($file === null) {
             $oEmbed = $this->getOEmbedData($mediaId);
             if (!empty($oEmbed) && isset($oEmbed['title'])) {
-                $fileName = $oEmbed['author_name'] . '-' . $oEmbed['title'] . '.' . $fileExtension;
+                $fileName = $oEmbed['author_name'] . '-' . substr($oEmbed['title'], 0, 50)  . '.' . $fileExtension;
             } else {
                 $fileName = $mediaId . '.' . $fileExtension;
             }
@@ -79,9 +79,6 @@ class InstagramHelper extends AbstractOEmbedHelper
         if ($oEmbed) {
             $metadata['width'] = (int)$oEmbed['width'];
             $metadata['height'] = (int)$oEmbed['height'];
-            if (empty($file->getProperty('title')) && isset($oEmbed['title'])) {
-                $metadata['title'] = strip_tags($oEmbed['title']);
-            }
             $metadata['author'] = $oEmbed['author_name'];
         }
         return $metadata;
@@ -124,6 +121,6 @@ class InstagramHelper extends AbstractOEmbedHelper
      */
     public function getOEmbedUrl($mediaId, $format = 'json')
     {
-        return 'https://api.instagram.com/oembed/?url=http://www.instagram.com/p/' . $mediaId . '/';
+        return 'https://api.instagram.com/oembed/?url=https://www.instagram.com/p/' . $mediaId . '/';
     }
 }
